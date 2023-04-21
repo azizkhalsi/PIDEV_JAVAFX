@@ -65,14 +65,6 @@ public class LoggedInClientController implements Initializable {
     @FXML
     private Label lemail;
     @FXML
-    private Label lnumt;
-    @FXML
-    private Label letoile;
-    @FXML
-    private Label lscore;
-    @FXML
-    private Label ltype;
-    @FXML
     private TextField tsearch;
 
     

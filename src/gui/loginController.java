@@ -95,7 +95,7 @@ exitBtn.setOnAction(e -> Platform.exit());
         }
             
         }
-        if(user.getBlocked() == true)
+       else if(user.getBlocked() == true)
         {
             m.changeScene("/gui/UserBlocked.fxml");
         }

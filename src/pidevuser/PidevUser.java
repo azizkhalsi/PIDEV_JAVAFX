@@ -29,7 +29,7 @@ public class PidevUser extends Application {
        // primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
         stage.setTitle("Recyc-Ligne");
-        stage.setScene(new Scene(root, 660, 409));
+        stage.setScene(new Scene(root, 1200, 800));
         stage.show();
     }
  public void changeScene(String fxml) throws IOException {
