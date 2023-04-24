@@ -57,10 +57,7 @@ public class SignUpController implements Initializable {
     private TextField mot_de_passe;
     @FXML
     private TextField confirmerMotDePasse;
-    @FXML
-    private Circle imageIn;
-     @FXML
-    private Button imageB;
+
     /**
      * Initializes the controller class.
      */

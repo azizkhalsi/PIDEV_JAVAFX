@@ -5,17 +5,14 @@
         <group>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/login.fxml</file>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/loginController.java</file>
+            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/Password_resetController.java</file>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/Services/ServiceUser.java</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/editprofile.fxml</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/SignUpController.java</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/UserBlockedController.java</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/SignUp.fxml</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/LoggedIn.fxml</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/ChatBotController.java</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/entites/User.java</file>
-            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/LoggedInClientController.java</file>
+            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/ResetPasswordController.java</file>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/LoggedInController.java</file>
+            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/SignUpController.java</file>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/pidevuser/PidevUser.java</file>
+            <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/UserBlockedController.java</file>
+            <file>file:/C:/Users/azizk/Desktop/PidevUser/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/azizk/Desktop/PidevUser/src/gui/EditprofileController.java</file>
         </group>
     </open-files>

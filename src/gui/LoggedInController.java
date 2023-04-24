@@ -44,6 +44,8 @@ import util.dbconnection;
  */
 public class LoggedInController implements Initializable {
 
+    
+    
     @FXML
     private Button exit;
     @FXML
@@ -197,11 +199,14 @@ public class LoggedInController implements Initializable {
                 };
                 return cell;
             }
+            
+             
         };
 
         Block1Btn.setCellFactory(cellFactory);
 
         tvUsers.getColumns().add(Block1Btn);
+       
 
     }
   

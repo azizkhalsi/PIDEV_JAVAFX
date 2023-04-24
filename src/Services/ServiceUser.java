@@ -5,6 +5,9 @@
  */
 package Services;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import entites.User;
 import util.dbconnection;
 import java.sql.Connection;
@@ -14,8 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.swing.JOptionPane;
 import org.mindrot.jbcrypt.BCrypt;
-import pidevuser.PidevUser;
 
 /**
  *
@@ -25,6 +28,10 @@ public class ServiceUser {
      private static ServiceUser instance;
      Connection cn = dbconnection.getInstance().getConnection();
     dbconnection cnx = dbconnection.getInstance();
+    
+     public static final String ACCOUNT_SID = "AC2bbf820bd581671f90314d787404370e";
+    public static final String AUTH_TOKEN = "ca732ce8296518ef7c6914e54a0cbf70";
+    
     public ServiceUser(){
         
     }
@@ -115,6 +122,15 @@ public class ServiceUser {
         pre.setString(2, email);
         pre.executeUpdate();
         
+             
+              
+       JOptionPane.showMessageDialog(null, "This account has been temporarily blocked !");  
+            
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                    Message message = Message.creator(new PhoneNumber("+21698711711"),
+        new PhoneNumber("+16813346950"), 
+        "This account has been now blocked").create();   
+        
     }
     
      public void DeblockUser(String email) throws SQLException{
@@ -126,7 +142,14 @@ public class ServiceUser {
         PreparedStatement pre = cn.prepareStatement(req);
         pre.setInt(1, 0);
         pre.setString(2, email);
-        pre.executeUpdate();
+        pre.executeUpdate();      
+              
+        JOptionPane.showMessageDialog(null, "This account is currently active and not blocked !");  
+            
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                    Message message = Message.creator(new PhoneNumber("+21698711711"),
+        new PhoneNumber("+16813346950"), 
+        "Your account is currently active and not blocked").create();
         
     }
       public User searchUserByEmail(String pseudo, String password) throws SQLException {
@@ -150,8 +173,8 @@ public class ServiceUser {
                     user.setId(rs.getInt("id"));
                     user.setEmail(rs.getString("email"));
                     user.setRoles(rs.getString("roles"));
-                    user.setPassword(rs.getString("password"));    
-                    user.setPassword(rs.getString("password"));       
+                    user.setPassword(rs.getString("password"));  
+                    user.setBlocked(rs.getBoolean("blocked")); 
                     user.setUsername(rs.getString("username"));
                     System.out.println("User found");
 

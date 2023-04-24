@@ -36,6 +36,13 @@ public class User {
             this.Password =Password ;
             
         }
+    
+    
+    public User(String Password)
+        {
+            this.Password =Password ;
+            
+        }
 
     public User(String email, String Password, String username) {
         this.email = email;

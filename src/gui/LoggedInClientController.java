@@ -93,6 +93,7 @@ public class LoggedInClientController implements Initializable {
          m.changeScene("/gui/editprofile.fxml");
         
     }
+    
    
    
   
