@@ -8,26 +8,17 @@ package gui;
 import entites.User;
 import pidevuser.PidevUser;
 import Services.ServiceUser;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -37,65 +28,42 @@ import javax.imageio.ImageIO;
 public class EditprofileController implements Initializable {
 String imagePath="";
     @FXML
-    private TextField nom;
-    @FXML
-    private TextField prenom;
+    private TextField username;
     @FXML
     private TextField email;
-    @FXML
-    private TextField type;
-    @FXML
-    private TextField num_telephone;
-@FXML
-    private ImageView pic;
+
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         User user = pidevuser.PidevUser.user;
-          final String imageURI4 = new File(user.getImage()).toURI().toString();
-       pic.setImage(new Image(imageURI4));
    
-        nom.setText(user.getNom());
-        email.setText(user.getEmail());
-        prenom.setText(user.getPrenom());
-        type.setText(user.getType());
-        num_telephone.setText(user.getNum_telephone());
-    }    
-     @FXML
-    private void addImage(ActionEvent event) {
-        FileChooser fc = new FileChooser();
+         User user = pidevuser.PidevUser.user;
 
-        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
-        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fc.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
-        File selectedFile = fc.showOpenDialog(null);
-        try {
-            BufferedImage bufferedImage = ImageIO.read(selectedFile);
-            Image image2 = SwingFXUtils.toFXImage(bufferedImage, null);
-            //imageIn.setFill(new ImagePattern(image2));
-            imagePath = selectedFile.toURI().toURL().toString();
-             pic.setImage(image2);
-        } catch (IOException ex) {
-            Logger.getLogger(EditprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        username.setText(user.getUsername());
+        email.setText(user.getEmail());
+       
+    }    
+    
+   
+
+   
     @FXML
-     private void editUser(ActionEvent event) throws IOException, SQLException {
+     private void editUserProfile(ActionEvent event) throws IOException, SQLException {
        
            
            
-           if(ValidateEmptyForm(nom,prenom,type,num_telephone,email,pic)
-            && ValidateName(nom) && ValidateEmail(email) && ValidateNumTel(num_telephone))
+           if(ValidateEmptyForm(username,email)
+            && ValidateName(username) && ValidateEmail(email) )
         {
            
-            User userx = new User(email.getText(),pidevuser.PidevUser.user.getPassword(), num_telephone.getText(),type.getText(), nom.getText(), prenom.getText(),imagePath);
+            User userx = new User(email.getText(),pidevuser.PidevUser.user.getPassword(), username.getText());
            System.out.println("***************"+userx);
             
                
-                ServiceUser.getInstance().editUser(userx);
+                ServiceUser.getInstance().editUserProfile(userx);
                 
                 
                 //  FXMLLoader loader =  new FXMLLoader(getClass().getResource("../Views/Login.fxml"));
@@ -114,9 +82,9 @@ String imagePath="";
         
     }
     
-      private boolean ValidateEmptyForm(TextField nom, TextField prenom,TextField email,TextField type,TextField num_telephone ,ImageView img){
-         if (nom.getText().equals("")  || prenom.getText().equals("") ||
-                 type.getText().equals("") || num_telephone.getText().equals("") || email.getText().equals("") || img.getImage()==null ){
+      private boolean ValidateEmptyForm(TextField username ,TextField email){
+         if (username.getText().equals("")  ||
+                 email.getText().equals("")  ){
              Alert alert = new Alert(Alert.AlertType.WARNING);
              alert.setTitle("Erreur");
              alert.setHeaderText(null);

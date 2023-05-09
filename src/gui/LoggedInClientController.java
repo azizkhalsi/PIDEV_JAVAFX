@@ -6,29 +6,23 @@
 package gui;
 
 import entites.User;
-import Services.ServiceUser;
 import java.io.IOException;
 import pidevuser.PidevUser;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -65,14 +59,6 @@ public class LoggedInClientController implements Initializable {
     @FXML
     private Label lemail;
     @FXML
-    private Label lnumt;
-    @FXML
-    private Label letoile;
-    @FXML
-    private Label lscore;
-    @FXML
-    private Label ltype;
-    @FXML
     private TextField tsearch;
 
     
@@ -101,6 +87,36 @@ public class LoggedInClientController implements Initializable {
          m.changeScene("/gui/editprofile.fxml");
         
     }
+    
+     @FXML
+    private void AjouterSociete() throws IOException {
+        PidevUser m = new PidevUser();
+        m.changeScene("/gui/AfficherSocieteClient.fxml");
+    }
+    
+      @FXML
+    private void AjouterConseil() throws IOException {
+        PidevUser m = new PidevUser();
+        m.changeScene("/gui/AjouterConseil.fxml");
+    }
+    
+      @FXML
+    private void AjouterLivraison() throws IOException {
+        PidevUser m = new PidevUser();
+        m.changeScene("/gui/AjouterLivraison.fxml");
+    }
+       @FXML
+    private void AjouterReclamation() throws IOException {
+        PidevUser m = new PidevUser();
+        m.changeScene("/gui/ajoutReclamation.fxml");
+    }
+    
+    @FXML
+    private void ChatBot() throws IOException {
+        PidevUser m = new PidevUser();
+        m.changeScene("/gui/ChatBot.fxml");
+    }
+   
    
    
   

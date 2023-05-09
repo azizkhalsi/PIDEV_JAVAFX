@@ -6,7 +6,6 @@
 package pidevuser;
 
 import entites.User;
-import util.dbconnection;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -23,13 +22,14 @@ public class PidevUser extends Application {
     
     private static Stage stg ;
     public static User user=null ;
+   
      @Override
     public void start(Stage stage) throws Exception{
         stg = stage;
        // primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
         stage.setTitle("Recyc-Ligne");
-        stage.setScene(new Scene(root, 660, 409));
+        stage.setScene(new Scene(root, 1200, 800));
         stage.show();
     }
  public void changeScene(String fxml) throws IOException {

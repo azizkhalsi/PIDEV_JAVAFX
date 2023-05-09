@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 import pidevuser.PidevUser;
 
@@ -36,12 +38,16 @@ public class ChatBotController implements Initializable{
     public void initialize(URL url, ResourceBundle rb){
         // Set button action
         btnSend.setOnAction(event -> {
-            String input = txtInput.getText();
-            System.out.println("input"+input);
-            String response = getResponse(input);
-            System.out.println(response);
-            lblOutput.setText(response);
-            txtInput.clear();
+            try {
+                String input = txtInput.getText();
+                System.out.println("input"+input);
+                String response = getResponse(input);
+                System.out.println(response);
+                lblOutput.setText(response);
+                txtInput.clear();
+            } catch (IOException ex) {
+                Logger.getLogger(ChatBotController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
     
@@ -55,10 +61,12 @@ public class ChatBotController implements Initializable{
 
    
 
-    private String getResponse(String input) {
+    private String getResponse(String input) throws IOException {
+         
         // Loop through responses and return a random one
-
+PidevUser m = new PidevUser() ;
         for (String response : RESPONSES) {
+            
             if (input.toLowerCase().contains("salut")) {
                 return "salut comment je peux t aider aujourd'hui ?";
             }
@@ -70,20 +78,34 @@ public class ChatBotController implements Initializable{
                 return "i will do my best to help you";
             }
             
-            if (input.toLowerCase().contains(input.toLowerCase())) {
-                return response;
+            if (input.toLowerCase().contains("ou je peux passer des livraisons")|| input.toLowerCase().contains("livraison")) {
+           
+         m.changeScene("/gui/AjouterLivraison.fxml");
+                
             }
-            if (input.toLowerCase().contains(input.toLowerCase())) {
-                return response;
+            if (input.toLowerCase().contains("ou je peux trouver les societe de recyclage")|| input.toLowerCase().contains("societe de recylage") ) {
+            
+          
+         m.changeScene("/gui/AfficherSocieteClient.fxml");
             }
-        }
+            
+            if (input.toLowerCase().contains("ou je peux demander des conseils")|| input.toLowerCase().contains("conseil")) {
+              
+         m.changeScene("/gui/AjouterConseil.fxml");
+            }
+       
+        if (input.toLowerCase().contains("ou je peux changer mon mot de passe")|| input.toLowerCase().contains("resetpassword")) {
+              
+         m.changeScene("/gui/ResetPassword.fxml");
+            }
+         }
         return RESPONSES[RESPONSES.length];
     }
     
      @FXML
     private void back()throws IOException {
         PidevUser m = new PidevUser() ;
-         m.changeScene("/gui/LoggedIn.fxml");
+         m.changeScene("/gui/LoggedInClient.fxml");
         
     }
 }

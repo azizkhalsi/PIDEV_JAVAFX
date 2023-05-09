@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #e9dee6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherSocieteClientController">
+
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1234.0" opacity="0.63" pickOnBounds="true">
+         <image>
+            <Image url="@../image/341137883_217038194366984_997460162583141787_n.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableview" layoutX="254.0" layoutY="168.0" onMouseClicked="#getSelected" prefHeight="482.0" prefWidth="652.0" style="-fx-background-color: transparent; -fx-border-color: #b84654; -fx-border-width: 0px 1px 1px 1px;">
+         <columns>
+            <TableColumn fx:id="nomSociete" prefWidth="294.4000244140625" text="nomSociete" /> 
+            <TableColumn fx:id="typeSociete" minWidth="0.0" prefWidth="199.199951171875" text="typeSociete" />
+           
+             
+           
+            
+          
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+        
+      <TextField fx:id="Recherche_Societe" layoutX="254.0" layoutY="117.0" prefHeight="26.0" prefWidth="652.0" promptText="Search" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px;" />
+     
+      <AnchorPane prefHeight="800.0" prefWidth="223.0" style="-fx-background-color: #228B22;">
+         <children>
+            <Button fx:id="button_logout" layoutX="57.0" layoutY="24.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="109.0" style="-fx-background-color: BLACK; -fx-text-fill: white;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon glyphName="USER" layoutX="29.0" layoutY="108.0" onDragDetected="#toupdatescene" onMouseClicked="#toupdatescene" size="2.5em" />
+            <FontAwesomeIcon fill="WHITE" glyphName="TRUCK" layoutX="20.0" layoutY="341.0" onDragDetected="#AjouterLivraison" onKeyPressed="#AjouterLivraison" onMouseClicked="#AjouterLivraison" size="3.5em" smooth="false" stroke="BLACK" strokeType="OUTSIDE" />
+            <Text layoutX="112.0" layoutY="332.0" onMouseClicked="#AjouterLivraison" strokeType="OUTSIDE" strokeWidth="0.0" text="livraison" wrappingWidth="75.658203125">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="112.0" layoutY="250.0" onMouseClicked="#AjouterConseil" strokeType="OUTSIDE" strokeWidth="0.0" text="Conseil" wrappingWidth="75.658203125">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="112.0" layoutY="427.0" onMouseClicked="#AjouterSociete" strokeType="OUTSIDE" strokeWidth="0.0" text="Societe" wrappingWidth="75.658203125">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="74.0" layoutY="104.0" onMouseClicked="#toupdatescene" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="75.658203125">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLIPBOARD" layoutX="21.0" layoutY="436.0" onDragDetected="#AjouterSociete" onKeyPressed="#AjouterSociete" onMouseClicked="#AjouterSociete" size="3.5em" smooth="false" stroke="BLACK" strokeType="OUTSIDE" />
+            <FontAwesomeIcon fill="WHITE" glyphName="INBOX" layoutX="23.0" layoutY="535.0" onDragDetected="#AjouterSociete" onKeyPressed="#AjouterSociete" size="3.5em" smooth="false" stroke="BLACK" strokeType="OUTSIDE" />
+            <Text layoutX="95.0" layoutY="526.0" onMouseClicked="#AjouterReclamation" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="109.59999999999997">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <FontAwesomeIcon glyphName="COMMENT" layoutX="26.0" layoutY="176.0" onDragDetected="#ChatBot" onMouseClicked="#ChatBot" size="2.5em" text="" />
+            <Text layoutX="74.0" layoutY="172.0" onMouseClicked="#ChatBot" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat Bot" wrappingWidth="75.658203125">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </Text>
+            <FontAwesomeIcon fill="WHITE" glyphName="COMMENTS" layoutX="21.0" layoutY="258.0" onDragDetected="#AjouterConseil" onMouseClicked="#AjouterConseil" size="3.5em" smooth="false" stroke="BLACK" strokeType="OUTSIDE" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="254.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Societe De Recyclage disponible :" wrappingWidth="311.60662841796875">
+         <font>
+            <Font name="System Bold Italic" size="26.0" />
+         </font>
+      </Text>
+     
+      
+   </children>
+</AnchorPane>
